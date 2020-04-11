@@ -2,17 +2,93 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Auth::routes();
+Route::middleware('auth')->group(function(){
 
-Route::get('/', function () {
-    return view('welcome');
+
+	Route::get('/','DashboardController@index');
+	// Route::get('/', 'HomeController@index')->name('dashboard');
+
+	Route::get('/outlet','OutletController@index');	//for show data
+	Route::get('/outlet/create','OutletController@create');//for show create form table
+	Route::post('/outlet/create','OutletController@insert');//for process from form create
+	Route::delete('/outlet/delete','OutletController@delete');//for delete data
+	Route::get('/outlet/edit/{acuan}','OutletController@edit');//for show edit form
+	Route::put('/outlet/edit','OutletController@update');//for process behind edit form
+
+	//------Produk / Paket ---------
+	Route::get('/produk','PaketController@index');
+	Route::get('/produk/create','PaketController@create');
+	Route::post('/produk/create','PaketController@insert');
+	Route::delete('/produk/delete','PaketController@delete');
+	Route::get('/produk/edit/{acuan}','PaketController@edit');
+	Route::put('/produk/edit','PaketController@update');
+
+	//------ Member -----------
+	Route::get('/member','MemberController@index');	
+	Route::get('/member/create','MemberController@create');
+	Route::post('/member/create','MemberController@insert');
+	Route::delete('/member/delete','MemberController@delete');
+	Route::get('/member/edit/{acuan}','MemberController@edit'); 
+	Route::put('/member/edit','MemberController@update');  
+
+
+	//------ Jenis Pengeluaran -----------
+	Route::get('/jenis-pengeluaran','JenisPengeluaranController@index');	
+	Route::get('/jenis-pengeluaran/create','JenisPengeluaranController@create');
+	Route::post('/jenis-pengeluaran/create','JenisPengeluaranController@insert');
+	Route::delete('/jenis-pengeluaran/delete','JenisPengeluaranController@delete');
+	Route::get('/jenis-pengeluaran/edit/{acuan}','JenisPengeluaranController@edit'); 
+	Route::put('/jenis-pengeluaran/edit','JenisPengeluaranController@update');  
+
+
+	//------ Pelanggan -----------
+	Route::get('/pelanggan','PelangganController@index');	
+	Route::get('/pelanggan/create','PelangganController@create');
+	Route::post('/pelanggan/create','PelangganController@insert');
+	Route::delete('/pelanggan/delete','PelangganController@delete');
+	Route::get('/pelanggan/edit/{acuan}','PelangganController@edit'); 
+	Route::put('/pelanggan/edit','PelangganController@update');  
+
+
+	//------ Member -----------
+	Route::get('/transaksi','TransaksiController@index');	
+	Route::get('/transaksi/create','TransaksiController@create');
+	Route::post('/transaksi/create','TransaksiController@insert');
+	Route::delete('/transaksi/delete','TransaksiController@delete');
+	Route::get('/transaksi/edit/{acuan}','TransaksiController@edit'); 
+	Route::put('/transaksi/edit','TransaksiController@update'); 
+
+	//------ Pelanggan -----------
+	Route::get('/pengeluaran','PengeluaranController@index');	
+	Route::get('/pengeluaran/create','PengeluaranController@create');
+	Route::post('/pengeluaran/create','PengeluaranController@insert');
+	Route::delete('/pengeluaran/delete','PengeluaranController@delete');
+	Route::get('/pengeluaran/edit/{acuan}','PengeluaranController@edit'); 
+	Route::put('/pengeluaran/edit','PengeluaranController@update');   
+
+	//------ Laporan -----------
+	Route::get('/laporan','LaporanController@index');	
+	Route::get('/laporan/create','LaporanController@create');
+	Route::post('/laporan/create','LaporanController@insert');
+	Route::delete('/laporan/delete','LaporanController@delete');
+	Route::get('/laporan/edit/{acuan}','LaporanController@edit'); 
+	Route::put('/laporan/edit','LaporanController@update');
+
+
+	//------ Pengaturan -----------
+	Route::get('/pengaturan','PengaturanController@index');	
+	Route::get('/pengaturan/create','PengaturanController@create');
+	Route::post('/pengaturan/create','PengaturanController@insert');
+	Route::delete('/pengaturan/delete','PengaturanController@delete');
+	Route::get('/pengaturan/edit/{acuan}','PengaturanController@edit'); 
+	Route::put('/pengaturan/edit','PengaturanController@update');   
+
+
+	//------ Hak Akses Pengguna -----------
+	Route::get('/hak-akses','HakAksesController@index');
+   
+
+
 });
+	
