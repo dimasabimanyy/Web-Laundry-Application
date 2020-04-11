@@ -7,7 +7,6 @@ Route::middleware('auth')->group(function(){
 
 
 	Route::get('/','DashboardController@index');
-	// Route::get('/', 'HomeController@index')->name('dashboard');
 
 	Route::get('/outlet','OutletController@index');	//for show data
 	Route::get('/outlet/create','OutletController@create');//for show create form table

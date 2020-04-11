@@ -18,8 +18,8 @@ class CreateTransaksisTable extends Migration
             $table->unsignedInteger('outlet_id');
             $table->foreign('outlet_id')->references('id')->on('outlets')->onDelete('cascade');
             $table->String('kode_invoice');
-            $table->unsignedInteger('member_id');
-            $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
+            $table->unsignedInteger('pelanggan_id');
+            $table->foreign('pelanggan_id')->references('id')->on('pelanggans')->onDelete('cascade');
             $table->date('tanggal');
             $table->date('batas_waktu');
             $table->date('tanggal_bayar');
