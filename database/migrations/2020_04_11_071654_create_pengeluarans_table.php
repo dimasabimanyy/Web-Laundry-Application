@@ -20,7 +20,7 @@ class CreatePengeluaransTable extends Migration
             $table->date('tanggal');
             $table->unsignedInteger('jenis_pengeluaran_id');
             $table->foreign('jenis_pengeluaran_id')->references('id')->on('jenis_pengeluarans')->onDelete('cascade');
-            $table->double('total');
+            $table->String('total');
             $table->String('keterangan');
             $table->timestamps();
         });

@@ -17,8 +17,8 @@ class CreateDetailTransaksisTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('transaksi_id');
             $table->foreign('transaksi_id')->references('id')->on('transaksis')->onDelete('cascade');
-            $table->unsignedInteger('paket_id');
-            $table->foreign('paket_id')->references('id')->on('pakets')->onDelete('cascade');
+            $table->unsignedInteger('produk_id');
+            $table->foreign('produk_id')->references('id')->on('produks')->onDelete('cascade');
             $table->double('quality');
             $table->String('keterangan');
             $table->timestamps();

@@ -7,6 +7,7 @@ Route::middleware('auth')->group(function(){
 
 
 	Route::get('/','DashboardController@index');
+	// Route::get('/','HomeController@index')->name('home');
 
 	Route::get('/outlet','OutletController@index');	//for show data
 	Route::get('/outlet/create','OutletController@create');//for show create form table
@@ -16,12 +17,12 @@ Route::middleware('auth')->group(function(){
 	Route::put('/outlet/edit','OutletController@update');//for process behind edit form
 
 	//------Produk / Paket ---------
-	Route::get('/produk','PaketController@index');
-	Route::get('/produk/create','PaketController@create');
-	Route::post('/produk/create','PaketController@insert');
-	Route::delete('/produk/delete','PaketController@delete');
-	Route::get('/produk/edit/{acuan}','PaketController@edit');
-	Route::put('/produk/edit','PaketController@update');
+	Route::get('/produk','ProdukController@index');
+	Route::get('/produk/create','ProdukController@create');
+	Route::post('/produk/create','ProdukController@insert');
+	Route::delete('/produk/delete','ProdukController@delete');
+	Route::get('/produk/edit/{acuan}','ProdukController@edit');
+	Route::put('/produk/edit','ProdukController@update');
 
 	//------ Member -----------
 	Route::get('/member','MemberController@index');	

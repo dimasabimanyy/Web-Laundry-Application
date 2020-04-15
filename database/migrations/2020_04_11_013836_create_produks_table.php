@@ -14,11 +14,12 @@ class CreateProduksTable extends Migration
     public function up()
     {
         Schema::create('produks', function (Blueprint $table) {
-            $table->id('id');
+            $table->increments('id');
             $table->unsignedInteger('outlet_id');
             $table->foreign('outlet_id')->references('id')->on('outlets')->onDelete('cascade');
             $table->enum('jenis',['kiloan','selimut','bed_cover','kaos','lain']);
-            $table->String('nama_paket');
+            $table->String('nama');
+            $table->String('kode');
             $table->String('harga');
             $table->timestamps();
         });
