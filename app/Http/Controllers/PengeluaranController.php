@@ -25,12 +25,12 @@ class PengeluaranController extends Controller
     }
     public function insert(Request $request){
     	Pengeluaran::Create($request->all());
-    	return redirect('pengeluaran');
+    	return redirect('pengeluaran')->withSuccess('Berhasil Ditambah!');
     }
     public function delete(Request $request){
         $pengeluaran = Pengeluaran::FindOrFail($request->id);
         $pengeluaran->delete($request->all());
-        return redirect('pengeluaran');
+        return redirect('pengeluaran')->withSuccess('Berhasil Dihapus!');
     }
     public function edit(Request $request){
         $data_pengeluaran = Pengeluaran::FindOrFail($request->acuan);
@@ -41,6 +41,6 @@ class PengeluaranController extends Controller
     public function update(Request $request){
         $pengeluaran = Pengeluaran::findOrFail($request->id);
         $pengeluaran->update($request->all()); 
-        return redirect('pengeluaran');
+        return redirect('pengeluaran')->withSuccess('Berhasil Diupdate!');
     }
 }

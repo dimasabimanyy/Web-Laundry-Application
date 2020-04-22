@@ -21,12 +21,12 @@ class OutletController extends Controller
     }
     public function insert(Request $request){
     	Outlet::Create($request->all());
-    	return redirect('outlet');
+    	return redirect('outlet')->withSuccess('Berhasil Ditambah!');
     }
     public function delete(Request $request){
         $outlet = Outlet::FindOrFail($request->id);
         $outlet->delete($request->all());
-        return redirect('outlet');
+        return redirect('outlet')->withSuccess('Berhasil Dihapus!');
     }
     public function edit(Request $request){
         $data_outlet = Outlet::FindOrFail($request->acuan);
@@ -45,7 +45,7 @@ class OutletController extends Controller
         //     'alamat' => $alamat->alamat,
         //     'telepon' => $telepon->telepon
         // ])->where('id' == $request->id);  
-        return redirect('outlet');
+        return redirect('outlet')->withSuccess('Berhasil Diupdate!');
     }
  
 }

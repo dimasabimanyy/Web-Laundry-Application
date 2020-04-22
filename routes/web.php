@@ -7,7 +7,6 @@ Route::middleware('auth')->group(function(){
 
 
 	Route::get('/','DashboardController@index');
-	// Route::get('/','HomeController@index')->name('home');
 
 	Route::get('/outlet','OutletController@index');	//for show data
 	Route::get('/outlet/create','OutletController@create');//for show create form table
@@ -15,6 +14,9 @@ Route::middleware('auth')->group(function(){
 	Route::delete('/outlet/delete','OutletController@delete');//for delete data
 	Route::get('/outlet/edit/{acuan}','OutletController@edit');//for show edit form
 	Route::put('/outlet/edit','OutletController@update');//for process behind edit form
+
+	Route::get('/profile','UserController@edit');
+	Route::put('/profile','UserController@user_update');
 
 	//------Produk / Paket ---------
 	Route::get('/produk','ProdukController@index');
@@ -32,7 +34,6 @@ Route::middleware('auth')->group(function(){
 	Route::get('/member/edit/{acuan}','MemberController@edit'); 
 	Route::put('/member/edit','MemberController@update');  
 
-
 	//------ Jenis Pengeluaran -----------
 	Route::get('/jenis-pengeluaran','JenisPengeluaranController@index');	
 	Route::get('/jenis-pengeluaran/create','JenisPengeluaranController@create');
@@ -41,7 +42,6 @@ Route::middleware('auth')->group(function(){
 	Route::get('/jenis-pengeluaran/edit/{acuan}','JenisPengeluaranController@edit'); 
 	Route::put('/jenis-pengeluaran/edit','JenisPengeluaranController@update');  
 
-
 	//------ Pelanggan -----------
 	Route::get('/pelanggan','PelangganController@index');	
 	Route::get('/pelanggan/create','PelangganController@create');
@@ -49,7 +49,6 @@ Route::middleware('auth')->group(function(){
 	Route::delete('/pelanggan/delete','PelangganController@delete');
 	Route::get('/pelanggan/edit/{acuan}','PelangganController@edit'); 
 	Route::put('/pelanggan/edit','PelangganController@update');  
-
 
 	//------ Member -----------
 	Route::get('/transaksi','TransaksiController@index');	
@@ -75,14 +74,29 @@ Route::middleware('auth')->group(function(){
 	Route::get('/laporan/edit/{acuan}','LaporanController@edit'); 
 	Route::put('/laporan/edit','LaporanController@update');
 
-
 	//------ Pengaturan -----------
 	Route::get('/pengaturan','PengaturanController@index');	
 	Route::get('/pengaturan/create','PengaturanController@create');
 	Route::post('/pengaturan/create','PengaturanController@insert');
 	Route::delete('/pengaturan/delete','PengaturanController@delete');
 	Route::get('/pengaturan/edit/{acuan}','PengaturanController@edit'); 
-	Route::put('/pengaturan/edit','PengaturanController@update');   
+	Route::put('/pengaturan/edit','PengaturanController@update'); 
+
+	//------ Transaksi -----------
+	Route::get('/transaksi','TransaksiController@index');	
+	Route::get('/transaksi/create','TransaksiController@create');
+	Route::post('/transaksi/create','TransaksiController@insert');
+	Route::delete('/transaksi/delete','TransaksiController@delete');
+	Route::get('/transaksi/edit/{acuan}','TransaksiController@edit'); 
+	Route::put('/transaksi/edit','TransaksiController@update');
+
+	//------ Detail Transaksi -----------
+	Route::get('/detail-transaksi','DetailTransaksiController@index');	
+	Route::get('/detail-transaksi/create','DetailTransaksiController@create');
+	Route::post('/detail-transaksi/create','DetailTransaksiController@insert');
+	Route::delete('/detail-transaksi/delete','DetailTransaksiController@delete');
+	Route::get('/detail-transaksi/edit/{acuan}','DetailTransaksiController@edit'); 
+	Route::put('/detail-transaksi/edit','DetailTransaksiController@update');   
 
 
 	//------ Hak Akses Pengguna -----------

@@ -23,12 +23,12 @@ class ProdukController extends Controller
     }
     public function insert(Request $request){
     	Produk::Create($request->all());
-    	return redirect('produk');
+    	return redirect('produk')->withSuccess('Berhasil Ditambah!');
     }
     public function delete(Request $request){
         $produk = Produk::FindOrFail($request->id);
         $produk->delete($request->all());
-        return redirect('produk');
+        return redirect('produk')->withSuccess('Berhasil Dihapus!');
     }
     public function edit(Request $request){
         $data_produk = Produk::FindOrFail($request->acuan);
@@ -38,6 +38,6 @@ class ProdukController extends Controller
     public function update(Request $request){
         $produk = Produk::findOrFail($request->id);
         $produk->update($request->all()); 
-        return redirect('produk');
+        return redirect('produk')->withSuccess('Berhasil Diupdate!');
     }
 }

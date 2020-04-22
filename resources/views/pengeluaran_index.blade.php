@@ -7,7 +7,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text"><i class="fas fa-search"></i></span>
       </div>
-      <input class="form-control" placeholder="Cari Pengeluaran" name="q_nama" type="text">
+      <input class="form-control" placeholder="Cari Pengeluaran" name="q_keterangan" type="text">
     </div>
   </div>
   <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
@@ -71,7 +71,7 @@
                         </form>
                     </div>
                 </div>
-             </div>
+              </div>
         </div>
     </div>
 </div>

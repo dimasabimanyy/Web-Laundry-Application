@@ -112,11 +112,11 @@
   <!-- Main content -->
   <div class="main-content" id="panel">
     <!-- Topnav -->
-    <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+    <nav class="navbar navbar-top navbar-expand navbar-dark bg-default border-bottom">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Search form -->
-          @yield('search-form')
+          <!-- @yield('search-form') -->
           <!-- Navbar links -->
           <ul class="navbar-nav align-items-center  ml-md-auto ">
             <li class="nav-item d-xl-none">
@@ -161,82 +161,6 @@
                           </div>
                         </div>
                         <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="#!" class="list-group-item list-group-item-action">
-                    <div class="row align-items-center">
-                      <div class="col-auto">
-                        <!-- Avatar -->
-                        <img alt="Image placeholder" src="{{asset('/img/theme/team-2.jpg')}}" class="avatar rounded-circle">
-                      </div>
-                      <div class="col ml--2">
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div>
-                            <h4 class="mb-0 text-sm">John Snow 3</h4>
-                          </div>
-                          <div class="text-right text-muted">
-                            <small>3 hrs ago</small>
-                          </div>
-                        </div>
-                        <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="#!" class="list-group-item list-group-item-action">
-                    <div class="row align-items-center">
-                      <div class="col-auto">
-                        <!-- Avatar -->
-                        <img alt="Image placeholder" src="{{asset('/img/theme/team-3.jpg')}}" class="avatar rounded-circle">
-                      </div>
-                      <div class="col ml--2">
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div>
-                            <h4 class="mb-0 text-sm">John Snow 4</h4>
-                          </div>
-                          <div class="text-right text-muted">
-                            <small>5 hrs ago</small>
-                          </div>
-                        </div>
-                        <p class="text-sm mb-0">Your posts have been liked a lot.</p>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="#!" class="list-group-item list-group-item-action">
-                    <div class="row align-items-center">
-                      <div class="col-auto">
-                        <!-- Avatar -->
-                        <img alt="Image placeholder" src="{{asset('/img/theme/team-4.jpg')}}" class="avatar rounded-circle">
-                      </div>
-                      <div class="col ml--2">
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div>
-                            <h4 class="mb-0 text-sm">John Snow 5</h4>
-                          </div>
-                          <div class="text-right text-muted">
-                            <small>2 hrs ago</small>
-                          </div>
-                        </div>
-                        <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="#!" class="list-group-item list-group-item-action">
-                    <div class="row align-items-center">
-                      <div class="col-auto">
-                        <!-- Avatar -->
-                        <img alt="Image placeholder" src="{{asset('/img/theme/team-5.jpg')}}" class="avatar rounded-circle">
-                      </div>
-                      <div class="col ml--2">
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div>
-                            <h4 class="mb-0 text-sm">John Snow 6</h4>
-                          </div>
-                          <div class="text-right text-muted">
-                            <small>3 hrs ago</small>
-                          </div>
-                        </div>
-                        <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
                       </div>
                     </div>
                   </a>
@@ -296,7 +220,7 @@
               <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="media align-items-center">
                   <span class="avatar avatar-sm rounded-circle">
-                    <img alt="User Profile" src="/uploads/avatars/{{Auth::user()->avatar}}">
+                    <img alt="Image placeholder" src="uploads/avatars/{{Auth::user()->avatar}}">
                   </span>
                   <div class="media-body  ml-2  d-none d-lg-block">
                     <span class="mb-0 text-sm  font-weight-bold">{{ Auth::user()->name }}</span>
@@ -320,56 +244,109 @@
                     {{ csrf_field() }}
                   </form>
               </div>
-            </li>
+          </li>
           </ul>
         </div>
       </div>
     </nav>
+
     <!-- Header -->
-    <!-- Header -->
-    <div class="header bg-primary pb-6">
-      <div class="container-fluid">
-        <div class="header-body">
-          <div class="row align-items-center py-4">
-            <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Web Laundry Apps</h6>
-              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  @yield('current-nav')
-                </ol>
-              </nav>
-            </div>
-            <div class="col-lg-6 col-5 text-right">
-            @yield('form-tambah-data')
-            </div>
+    <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: {{asset('/img/theme/team-1.jpg')}} ; background-size: cover; background-position: center top;">
+      <!-- Mask -->
+      <span class="mask bg-gradient-default opacity-8"></span>
+      <!-- Header container -->
+      <div class="container-fluid d-flex align-items-center text-center">
+        <div class="row d-flex" style="display: grid; align-content: center;align-items: center;">
+          <div class="col-xl-8 order-xl-1" style="margin: auto;" >
+            <a href="#">
+              <img src="/uploads/avatars/{{$user->avatar}}" style="width: 150px; height: 150px; border-radius: 50%; border: none;">
+            </a>
+            <h1 class="display-2 text-white">Halo {{ Auth::user()->name }}</h1>
+            <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, vel dicta. Eos suscipit fugit dolore minus veniam, provident beatae sed.</p>
           </div>
-          @yield('dashboard-statistics')
         </div>
       </div>
     </div>
-    <!-- Page content -->
-    <!-- <div class="container-fluid mt--6">
-      <div class="row">
-        <div class="col-xl-8">
 
-        </div>
-        <div class="col-xl-4">
-          
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+      <div class="row">
+        <div class="col-xl-8 order-xl-1" style="margin: auto;">
+          <div class="card">
+            <div class="card-header">
+              <div class="heading-small text-center">
+                User information
+              </div>
+            </div>
+            <div class="card-body">
+              <!-- EDIR PROFILE FORM -->
+              <form enctype="multipart/form-data" action="/profile" method="post" class="mb-3">
+                @csrf
+                @method('put')
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="avatar">Ubah Foto Profil</label>
+                        <input type="file" id="avatar" class="form-control" name="avatar">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="nama">Nama Lengkap</label>
+                        <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" placeholder="Masukkan nama lengkap" name="name" value="{{$user->name}}">
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="email">Email address</label>
+                        <input type="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Masukkan alamat email" name="email" required value="{{$user->email}}">
+                          @error('name')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                          @enderror
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="alamat">Alamat</label>
+                        <input type="text" id="alamat" class="form-control" name="alamat" value="{{$user->alamat}}">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="deskripsi">Deskripsi</label>
+                        <input type="text" id="deskripsi" class="form-control" name="deskripsi" value="{{$user->deskripsi}}">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-12 text-center">
+                      <button class="btn bg-success text-white">Kirim</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-xl-8">
-      
-        </div>
-        <div class="col-xl-4">
-          
-        </div>
-      </div> -->
-
-      <!-- Page Content 2 -->
-      @yield('content')
-      <!-- End Page Content 2 -->
 
       <!-- Footer -->
       <footer class="footer pt-0">
@@ -383,8 +360,7 @@
       </footer>
     </div>
   </div>
-  <!-- Sweetalert Scripts -->
-  @include('sweetalert::alert')
+  <!-- Argon Scripts -->
   <!-- Core -->
   <script src="{{asset('/vendor/jquery/dist/jquery.min.js')}}"></script>
   <script src="{{asset('/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>

@@ -1,5 +1,9 @@
 @extends('layouts.main_template')
 
+@section('optional-css')
+<link rel="stylesheet" href="{{asset('css/optional.css')}}" type="text/css">
+@endsection('optional-css')
+
 @section('current-nav')
 <li class="breadcrumb-item"><a href="">Dashboard</a></li>
 @endsection('current-nav')

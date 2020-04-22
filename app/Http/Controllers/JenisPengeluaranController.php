@@ -22,12 +22,12 @@ class JenisPengeluaranController extends Controller
     }
     public function insert(Request $request){
     	JenisPengeluaran::Create($request->all());
-    	return redirect('jenis-pengeluaran');
+    	return redirect('jenis-pengeluaran')->withSuccess('Berhasil Ditambah!');
     }
     public function delete(Request $request){
         $jenis_pengeluaran = JenisPengeluaran::FindOrFail($request->id);
         $jenis_pengeluaran->delete($request->all());
-        return redirect('jenis-pengeluaran');
+        return redirect('jenis-pengeluaran')->withSuccess('Berhasil Dihapus!');
     }
     public function edit(Request $request){
         $jenis_pengeluaran = JenisPengeluaran::FindOrFail($request->acuan);
@@ -36,6 +36,6 @@ class JenisPengeluaranController extends Controller
     public function update(Request $request){
         $jenis_pengeluaran = JenisPengeluaran::findOrFail($request->id);
         $jenis_pengeluaran->update($request->all()); 
-        return redirect('jenis-pengeluaran');
+        return redirect('jenis-pengeluaran')->withSuccess('Berhasil Diupdate!');
     }
 }
