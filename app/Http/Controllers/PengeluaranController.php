@@ -13,7 +13,7 @@ class PengeluaranController extends Controller
     	if($key != '') {
     		$data_pengeluaran->where('keterangan','like','%' . $key . '%');
     	}
-    	$data_pengeluaran = $data_pengeluaran->get();
+    	$data_pengeluaran = $data_pengeluaran->paginate(20);
     	$data_outlet = Outlet::get();
     	$data_jenis_pengeluaran = JenisPengeluaran::get();
     	return view('pengeluaran_index')->with('data_pengeluaran',$data_pengeluaran)->with('data_outlet',$data_outlet)->with('data_jenis_pengeluaran',$data_jenis_pengeluaran);

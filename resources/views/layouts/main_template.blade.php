@@ -41,68 +41,82 @@
                 <span class="nav-link-text">Dashboard</span>
               </a>
             </li>
+
+           @if(auth()->user()->role == 'admin' or auth()->user()->role == 'cashier')
             <li class="nav-item">
               <a class="nav-link">
                 <i class="ni ni-planet text-orange"></i>
                 <span class="nav-link-text">Master</span>
               </a>
                 <ul>
+                  @if(auth()->user()->role == 'admin')
                   <li class="nav-item dropdown">
                     <a href="{{url('/outlet')}}" class="nav-link">
                       <i class="ni ni-shop text-blue"></i>
                       <span class="nav-link-text">Outlet</span>
                     </a>
                   </li>
+                  @endif
+                  @if(auth()->user()->role == 'admin' or 'cashier')
                   <li class="nav-item dropdown">
                     <a href="{{url('/pelanggan')}}" class="nav-link">
                       <i class="fa fa-user-friends text-green"></i>
                       <span class="nav-link-text">Pelanggan</span>
                     </a>
                   </li>
+                  @endif
+                  @if(auth()->user()->role == 'admin')
                   <li class="nav-item dropdown">
                     <a href="{{url('/jenis-pengeluaran')}}" class="nav-link">
                       <i class="fa fa-random text-red"></i>
                       <span class="nav-link-text">Jenis Pengeluaran</span>
                     </a>
                   </li>
+                  @endif
+                  @if(auth()->user()->role == 'admin')
                   <li class="nav-item dropdown">
                     <a href="{{url('/produk')}}" class="nav-link">
                       <i class="ni ni-bullet-list-67 text-orange"></i>
                       <span class="nav-link-text">Produk</span>
                     </a>
                   </li>
+                  @endif
                 </ul>
             </li>
+            @endif
+
+            @if(auth()->user()->role == 'admin' or auth()->user()->role == 'cashier')
             <li class="nav-item">
               <a class="nav-link" href="{{url('/transaksi')}}">
                 <i class="fa fa-money-bill-wave text-primary"></i>
                 <span class="nav-link-text">Transaksi</span>
               </a>
             </li>
+            @endif
+            @if(auth()->user()->role == 'admin')
             <li class="nav-item">
               <a class="nav-link" href="{{url('/pengeluaran')}}">
                 <i class="fa fa-sign-out-alt text-yellow"></i>
                 <span class="nav-link-text">Pengeluaran</span>
               </a>
             </li>
+            @endif
+            @if(auth()->user()->role == 'admin' or 'cashier' or 'owner')
             <li class="nav-item">
               <a class="nav-link" href="{{url('/laporan')}}">
                 <i class="fa fa-folder text-orange"></i>
                 <span class="nav-link-text">Laporan</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url('/member')}}">
-                <i class="ni ni-circle-08 text-green"></i>
-                <span class="nav-link-text">Member</span>
-              </a>
-            </li>
+            @endif
+            @if(auth()->user()->role == 'admin' or 'cashier')
             <li class="nav-item">
               <a class="nav-link" href="{{url('/pengaturan')}}">
                 <i class="ni ni-settings-gear-65 text-dark"></i>
                 <span class="nav-link-text">Pengaturan</span>
               </a>
             </li>
+            @endif
           </ul>
           
         </div>

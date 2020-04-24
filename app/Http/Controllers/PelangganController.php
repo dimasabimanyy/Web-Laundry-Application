@@ -14,7 +14,7 @@ class PelangganController extends Controller
     	if($key != '') {
     		$data_pelanggan->where('nama','like','%' . $key . '%');
     	}
-    	$data_pelanggan = $data_pelanggan->get();
+    	$data_pelanggan = $data_pelanggan->paginate(20);
     	$data_outlet = Outlet::get();
     	return view('pelanggan_index')->with('data_pelanggan',$data_pelanggan)->with('data_outlet',$data_outlet);
     }

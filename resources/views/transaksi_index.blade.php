@@ -23,9 +23,9 @@
                 <div class="card bg-secondary border-0 mb-0">
                     <div class="card-body px-lg-5 py-lg-5">
                         <div class="text-center mb-4">
-                            <big>Tambah Data Pelanggan</big>
+                            <big>Tambah Data Transaksi</big>
                         </div>
-                        <form action="{{url('pelanggan/create')}}" method="post">
+                        <form action="{{url('transaksi/create')}}" method="post">
                           {{csrf_field()}}
                           {{method_field('POST')}}
                             <div class="form-group mb-3">
@@ -37,13 +37,37 @@
                                     </select>
                             </div>
                             <div class="form-group mb-3">
-                                    <input class="form-control" placeholder="Nama Pelanggan" name="nama">
+                                  <select name="status" class="form-control">
+                                    <option>-- Pilih Status --</option>
+                                    <option value="baru">Baru</option>
+                                    <option value="proses">Proses</option>
+                                    <option value="selesai">Selesai</option>
+                                    <option value="diambil">Diambil</option>
+                                  </select>  
                             </div>
                             <div class="form-group mb-3">
-                                    <input class="form-control" placeholder="Alamat" name="alamat">
+                                    <input class="form-control" placeholder="Kode Invoice" name="kode_invoice">
                             </div>
                             <div class="form-group mb-3">
-                                    <input class="form-control" placeholder="Telepon" name="telepon">
+                                    <select name="pelanggan_id" class="form-control" required>
+                                      <option>- Pilih Pelanggan -</option>
+                                      @foreach($data_pelanggan as $data)
+                                      <option value="{{$data->id}}">{{$data->nama}}</option>
+                                      @endforeach
+                                    </select>
+                            </div>
+                            <div class="form-group mb-3">
+                                    <input class="form-control" type="date" placeholder="Tanggal" name="tanggal">
+                            </div>
+                            <div class="form-group mb-3">
+                                    <select name="dibayar" class="form-control">
+                                      <option>- Pilih Status Bayar -</option>
+                                      <option value="sudah_dibayar">Sudah Dibayar</option>
+                                      <option value="belum_dibayar">Belum Dibayar</option>
+                                    </select>
+                            </div>
+                            <div class="form-group mb-3">
+                                    <input class="form-control" placeholder="Total" name="total">
                             </div>
                             <div class="text-center">
                                 <button  class="btn btn-primary my-4">Tambah</button>
@@ -73,14 +97,13 @@
             <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort">No</th>
-                <th scope="col" class="sort" data-sort="outlet">Outlet</th>
-                <th scope="col" class="sort" data-sort="Status">Status</th>
-                <th scope="col" class="sort" data-sort="kode_invoice">Kode Invoice</th>
-                <th scope="col" class="sort" data-sort="Biaya Tambahana">Pelanggan</th>
-                <th scope="col" class="sort" data-sort="Batas Waktu">Batas Waktu</th>
-                <th scope="col" class="sort" data-sort="Tanggal Bayar">Tanggal Bayar</th>
-                <th scope="col" class="sort" data-sort="Dibayar">Dibayar</th>
-                <th scope="col" class="sort" data-sort="Total">Total</th>
+                <th scope="col" class="sort">Pelanggan</th>
+                <th scope="col" class="sort">Outlet</th>
+                <th scope="col" class="sort">Status</th>
+                <th scope="col" class="sort">Kode Invoice</th>
+                <th scope="col" class="sort">Tanggal</th>
+                <th scope="col" class="sort">Dibayar</th>
+                <th scope="col" class="sort">Total</th>
                 <th scope="col" class="sort">Aksi</th>
               </tr>
             </thead>
@@ -101,6 +124,17 @@
                 </th>
                 <td>
                   {{$data->outlet->nama}}
+                  <td class="text-center">
+                    <?php if ($data->status == 'baru') { ?>
+                      <button class="btn btn-info btn-sm">Baru</button>
+                    <?php }elseif ($data->status == 'proses') { ?>
+                      <button class="btn btn-warning btn-sm">Proses</button>
+                    <?php }elseif ($data->status == 'selesai') { ?>                      
+                      <button class="btn btn-warning btn-sm">Selesai</button>
+                    <?php }else { ?>
+                      <button class="btn btn-primary btn-sm">Diambil</button>
+                    <?php } ?>
+                  </td>
                 </td>
                 <td>
                     {{$data->kode_invoice}}
@@ -108,37 +142,23 @@
                   <td>
                     {{$data->tanggal}}
                   </td>
-                  <td>
-                    {{$data->batas_waktu}}
+                  <td class="text-center">
+                    <?php if ($data->dibayar == 'sudah_dibayar') { ?>
+                      <button class="btn btn-success btn-sm">Dibayar</button>
+                    <?php }elseif ($data->dibayar == 'belum_dibayar') { ?>
+                      <button class="btn btn-danger btn-sm">Belum Dibayar</button>
+                    <?php } ?>
                   </td>
                   <td>
-                    {{$data->tanggal_bayar}}
-                  </td>
-                  <td>
-                    {{$data->biaya_tambahan}}
-                  </td>
-                  <td>
-                    {{$data->diskon}}
-                  </td>
-                  <td>
-                    {{$data->pajak}}
-                  </td>
-                  <td>
-                    {{$data->status}}
-                  </td>
-                  <td>
-                    {{$data->dibayar}}
-                  </td>
-                  <td>
-                    {{$data->user_id}}
+                    {{number_format($data->total)}}
                   </td>
                   <td>
 
                     <!-- Edit -->
-                      <form action="{{url('pelanggan/delete')}}" method="post">
+                      <form action="{{url('transaksi/delete')}}" method="post">
                       {{csrf_field()}}
                       {{method_field('DELETE')}}
-                      <a href="{{url('/pelanggan/edit',$data->id)}}" class="btn btn-icon btn-success btn-sm">
+                      <a href="{{url('/transaksi/edit',$data->id)}}" class="btn btn-icon btn-success btn-sm">
                       <span class="btn-inner--icon">
                         <i class="fa fa-pencil-alt"></i>
                       </span>
@@ -165,24 +185,8 @@
         <div class="card-footer py-4">
           <nav aria-label="...">
             <ul class="pagination justify-content-end mb-0">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">
-                  <i class="fas fa-angle-left"></i>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item active">
-                <a class="page-link" href="#">1</a>
-              </li>
               <li class="page-item">
-                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  <i class="fas fa-angle-right"></i>
-                  <span class="sr-only">Next</span>
-                </a>
+                {{$data_transaksi->links()}}
               </li>
             </ul>
           </nav>

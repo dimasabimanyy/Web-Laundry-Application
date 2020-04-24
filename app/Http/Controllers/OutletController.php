@@ -13,7 +13,7 @@ class OutletController extends Controller
     	if ($key != '') {
     		$data_outlet->where('nama','like','%' . $key . '%');
     	}
-    	$data_outlet = $data_outlet->get();
+    	$data_outlet = $data_outlet->paginate(20);
     	return view('outlet_index')->with('data_outlet',$data_outlet);
     }
     public function create(){
@@ -34,17 +34,7 @@ class OutletController extends Controller
     }
     public function update(Request $request){
         $outlet = Outlet::findOrFail($request->id);
-        // dd($outlet);
-        $outlet->update($request->all());
-        // $outlet_save->nama = $outlet->nama;
-        // $outlet_save->alamat = $outlet->alamat;
-        // $outlet_save->telepon = $outlet->telepon;
-        // $outlet_save->save(); 
-        // $outlet->update([
-        //     'nama' => $name->nama,
-        //     'alamat' => $alamat->alamat,
-        //     'telepon' => $telepon->telepon
-        // ])->where('id' == $request->id);  
+        $outlet->update($request->all()); 
         return redirect('outlet')->withSuccess('Berhasil Diupdate!');
     }
  

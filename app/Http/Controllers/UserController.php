@@ -36,7 +36,8 @@ class UserController extends Controller
 
         $data->save();
 
-    	return view('/profile',array('user' => Auth::user()) )->withSuccess('Berhasil Diupdate!');
+    	// return view('/profile',array('user' => Auth::user()))->withSuccess('Berhasil Diupdate!');
+        return redirect('/profile');
 
     }
 }

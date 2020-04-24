@@ -14,7 +14,7 @@ class JenisPengeluaranController extends Controller
     	if($key != '') {
     		$jenis_pengeluaran->where('nama','like','%' . $key . '%');
     	}
-    	$jenis_pengeluaran = $jenis_pengeluaran->get();
+    	$jenis_pengeluaran = $jenis_pengeluaran->paginate(20);
     	return view('jenis_pengeluaran_index')->with('data_jenis_pengeluaran',$jenis_pengeluaran);
     }
     public function create(){

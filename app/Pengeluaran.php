@@ -15,4 +15,7 @@ class Pengeluaran extends Model
     public function JenisPengeluaran(){
     	return $this->belongsTo(JenisPengeluaran::Class);
     }
+    public function transaksi(){
+    	return $this->hasMany(Transaksi::Class);
+    }
 }

@@ -13,7 +13,7 @@ class ProdukController extends Controller
     	if($key != '') {
     		$data_produk->where('nama','like','%' . $key . '%');
     	}
-    	$data_produk = $data_produk->get();
+    	$data_produk = $data_produk->paginate(20);
     	$data_outlet = Outlet::get();
     	return view('produk_index')->with('data_produk',$data_produk)->with('data_outlet',$data_outlet);
     }

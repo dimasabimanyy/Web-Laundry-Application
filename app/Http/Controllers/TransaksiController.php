@@ -7,35 +7,53 @@ use App\{Outlet, Pelanggan, User, Transaksi};
 
 class TransaksiController extends Controller
 {
-    public function index(Request $request){
-    	$transaksi = Transaksi::OrderBy('tanggal');
-    	$transaksi = $transaksi->get();
+    public function index(){
+    	$transaksi = Transaksi::OrderBy('tanggal','desc');
+    	$data_transaksi = $transaksi->paginate(20);
     	$outlet = Outlet::get();
     	$pelanggan = Pelanggan::get();
     	$user = User::get();
-    	return view('transaksi_index')->with('data_transaksi',$transaksi)->with('data_outlet',$outlet)->with('data_pelanggan',$pelanggan)->with('data_user',$user);
+    	return view('transaksi_index')->with('data_transaksi',$data_transaksi)->with('data_outlet',$outlet)->with('data_pelanggan',$pelanggan);
     }
     public function create(){
     	$data_outlet = Outlet::get();
-    	return view('pelanggan_index')->with('data_outlet',$data_outlet);
+        $data_pelanggan = Pelanggan::get();
+    	return view('transaksi_index')->with('data_outlet',$data_outlet)->with('data_pelanggan',$data_pelanggan);
     }
     public function insert(Request $request){
-    	Pelanggan::Create($request->all());
-    	return redirect('pelanggan');
+        Transaksi::Create([
+            'outlet_id' => $request['outlet_id'],
+            'kode_invoice' => $request['kode_invoice'],
+            'pelanggan_id' => $request['pelanggan_id'],
+            'tanggal' => $request['tanggal'],
+            'status' => $request['status'],
+            'dibayar' => $request['dibayar'],
+            'total' => $request['total']
+        ]);
+    	return redirect('transaksi')->withSuccess('Berhasil Ditambah!');
     }
-    // public function delete(Request $request){
-    //     $pelanggan = Pelanggan::FindOrFail($request->id);
-    //     $pelanggan->delete($request->all());
-    //     return redirect('pelanggan');
-    // }
-    // public function edit(Request $request){
-    //     $data_pelanggan = Pelanggan::FindOrFail($request->acuan);
-    //     $data_outlet = Outlet::get();
-    //     return view('pelanggan_edit')->with('data_pelanggan',$data_pelanggan)->with('data_outlet',$data_outlet);
-    // }
-    // public function update(Request $request){
-    //     $pelanggan = Pelanggan::findOrFail($request->id);
-    //     $pelanggan->update($request->all()); 
-    //     return redirect('pelanggan');
-    // }
+    public function delete(Request $request){
+        $transaksi = Transaksi::FindOrFail($request->id);
+        $transaksi->delete($request->all());
+        return redirect('transaksi')->withSuccess('Berhasil Dihapus!');
+    }
+    public function edit(Request $request){
+        $transaksi = Transaksi::FindOrFail($request->acuan);
+        $data_outlet = Outlet::get();
+        $data_pelanggan = Pelanggan::get();
+        return view('transaksi_edit')->with('transaksi',$transaksi)->with('data_pelanggan',$data_pelanggan)->with('data_outlet',$data_outlet);
+    }
+    public function update(Request $request){
+        $transaksi = Transaksi::findOrFail($request->id);
+        $transaksi->update([
+            'outlet_id' => $request['outlet_id'],
+            'kode_invoice' => $request['kode_invoice'],
+            'pelanggan_id' => $request['pelanggan_id'],
+            'tanggal' => $request['tanggal'],
+            'status' => $request['status'],
+            'dibayar' => $request['dibayar'],
+            'total' => $request['total'],
+        ]); 
+        return redirect('transaksi')->withSuccess('Berhasil Diupdate!');
+    }
 }
