@@ -410,6 +410,9 @@
   <script src="{{asset('/vendor/chart.js/dist/Chart.extension.js')}}"></script>
   <!-- Argon JS -->
   <script src="{{asset('/js/argon.js?v=1.2.0')}}"></script>
+  @yield('chart-js')
+  <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+
 </body>
 
 </html>

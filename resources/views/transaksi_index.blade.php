@@ -67,7 +67,7 @@
                                     </select>
                             </div>
                             <div class="form-group mb-3">
-                                    <input class="form-control" placeholder="Total" name="total">
+                                    <input class="form-control" placeholder="Total" name="total" id="rupiah">
                             </div>
                             <div class="text-center">
                                 <button  class="btn btn-primary my-4">Tambah</button>
@@ -150,7 +150,7 @@
                     <?php } ?>
                   </td>
                   <td>
-                    {{number_format($data->total)}}
+                    Rp {{number_format($data->total)}}
                   </td>
                   <td>
 

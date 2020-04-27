@@ -123,7 +123,8 @@
                     {{$data->jenispengeluaran->nama}}
                 </td>
                   <td>
-                    {{$data->total}}
+                    {{number_format($data->total)
+                    }}
                   </td>
                   <td>
                     {{$data->keterangan}}

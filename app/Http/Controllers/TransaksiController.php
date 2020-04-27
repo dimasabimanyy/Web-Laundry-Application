@@ -10,14 +10,16 @@ class TransaksiController extends Controller
     public function index(){
     	$transaksi = Transaksi::OrderBy('tanggal','desc');
     	$data_transaksi = $transaksi->paginate(20);
-    	$outlet = Outlet::get();
-    	$pelanggan = Pelanggan::get();
-    	$user = User::get();
-    	return view('transaksi_index')->with('data_transaksi',$data_transaksi)->with('data_outlet',$outlet)->with('data_pelanggan',$pelanggan);
+    	$data_outlet = Outlet::get();
+    	$data_pelanggan = Pelanggan::get();
+
+        return view('transaksi_index', compact('data_transaksi','data_outlet','data_pelanggan'));
     }
     public function create(){
     	$data_outlet = Outlet::get();
         $data_pelanggan = Pelanggan::get();
+        
+        // auth()->user()->notify(new TransaksiHappened());
     	return view('transaksi_index')->with('data_outlet',$data_outlet)->with('data_pelanggan',$data_pelanggan);
     }
     public function insert(Request $request){
@@ -30,6 +32,7 @@ class TransaksiController extends Controller
             'dibayar' => $request['dibayar'],
             'total' => $request['total']
         ]);
+
     	return redirect('transaksi')->withSuccess('Berhasil Ditambah!');
     }
     public function delete(Request $request){
