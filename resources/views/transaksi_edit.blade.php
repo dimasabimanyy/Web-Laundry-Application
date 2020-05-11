@@ -34,10 +34,6 @@
                                     </select>
                             </div>
 						  	<div class="form-group">
-						    	<label for="kode_invoice">Kode Invoice</label>
-						    	<input type="text" class="form-control" id="kode_invoice" placeholder="Kode Invoice" name="kode_invoice" value="{{$transaksi->kode_invoice}}" required>
-						  	</div>
-						  	<div class="form-group">
 						    	<label for="telepon">Tanggal</label>
 						    	<input type="date" class="form-control" id="tanggal" placeholder="Tanggal" value="{{$transaksi->tanggal}}" name="tanggal" required>
 						  	</div>

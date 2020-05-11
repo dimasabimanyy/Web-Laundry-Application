@@ -46,9 +46,6 @@
                                   </select>  
                             </div>
                             <div class="form-group mb-3">
-                                    <input class="form-control" placeholder="Kode Invoice" name="kode_invoice" required>
-                            </div>
-                            <div class="form-group mb-3">
                                     <select name="pelanggan_id" class="form-control" required>
                                       <option>- Pilih Pelanggan -</option>
                                       @foreach($data_pelanggan as $data)
@@ -100,7 +97,6 @@
                 <th scope="col" class="sort">Pelanggan</th>
                 <th scope="col" class="sort">Outlet</th>
                 <th scope="col" class="sort">Status</th>
-                <th scope="col" class="sort">Kode Invoice</th>
                 <th scope="col" class="sort">Tanggal</th>
                 <th scope="col" class="sort">Dibayar</th>
                 <th scope="col" class="sort">Total</th>
@@ -135,9 +131,6 @@
                       <button class="btn btn-primary btn-sm">Diambil</button>
                     <?php } ?>
                   </td>
-                </td>
-                <td>
-                    {{$data->kode_invoice}}
                 </td>
                   <td>
                     {{$data->tanggal}}
