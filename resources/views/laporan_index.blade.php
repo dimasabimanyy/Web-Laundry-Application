@@ -27,11 +27,10 @@
                 <th scope="col" class="sort">Transaksi</th>
                 <th scope="col" class="sort">Pengeluaran</th>
                 <th scope="col" class="sort">Total</th>
-                <th scope="col" class="sort">Aksi</th>
               </tr>
             </thead>
             <tbody class="list">
-              @foreach($data_pengeluaran as $data)
+              @foreach($data as $laporan)
               <tr>
                 <td>
                     {{$loop->iteration}}
@@ -40,42 +39,22 @@
                   <div class="media align-items-center">
                     <div class="media-body">
                       <span class="name mb-0 text-sm">
-                        {{$data->tanggal}}
+                        {{$laporan->tanggal}}
                       </span>
                     </div>
                   </div>
                 </th>
-                <td>
-                </td>
-                <td>
-                    {{number_format($data->total)}}
-                </td>
                   <td>
-
-                    <!-- Edit -->
-                      <form action="{{url('pelanggan/delete')}}" method="post">
-                      {{csrf_field()}}
-                      {{method_field('DELETE')}}
-                      <a href="{{url('/pelanggan/edit',$data->id)}}" class="btn btn-icon btn-success btn-sm">
-                      <span class="btn-inner--icon">
-                        <i class="fa fa-pencil-alt"></i>
-                      </span>
-                      <span class="btn-inner--text">Edit</span>
-                      </a>
-                      
-                    <!-- Delete / Hapus -->
-                      <input type="hidden" name="id" value="{{$data->id}}">
-                      <button class="btn btn-icon btn-danger btn-sm">
-                        <span class="btn-inner--icon">
-                          <i class="fa fa-trash"></i>
-                        </span>
-                          <span class="btn-inner--text">Hapus</span>
-                      </button>
-                    </form>
+                    {{number_format($laporan->total)}}
                   </td>
-                    <!-- End Delete -->
+                  <td>
+                    {{number_format($laporan->total)}}
+                  </td>
+                  <td>
+                        <!-- Total -->
+                  </td>
                 </tr>
-              @endforeach
+                @endforeach
             </tbody>
           </table>
         </div>
@@ -84,7 +63,6 @@
           <nav aria-label="...">
             <ul class="pagination justify-content-end mb-0">
               <li class="page-item">
-                <!-- {{$data_pengeluaran->links()}} -->
               </li>
             </ul>
           </nav>

@@ -37,7 +37,7 @@
                                     </select>
                             </div>
                             <div class="form-group mb-3">
-                                  <select name="status" class="form-control">
+                                  <select name="status" class="form-control" required>
                                     <option>-- Pilih Status --</option>
                                     <option value="baru">Baru</option>
                                     <option value="proses">Proses</option>
@@ -46,7 +46,7 @@
                                   </select>  
                             </div>
                             <div class="form-group mb-3">
-                                    <input class="form-control" placeholder="Kode Invoice" name="kode_invoice">
+                                    <input class="form-control" placeholder="Kode Invoice" name="kode_invoice" required>
                             </div>
                             <div class="form-group mb-3">
                                     <select name="pelanggan_id" class="form-control" required>
@@ -57,17 +57,17 @@
                                     </select>
                             </div>
                             <div class="form-group mb-3">
-                                    <input class="form-control" type="date" placeholder="Tanggal" name="tanggal">
+                                    <input class="form-control" type="date" placeholder="Tanggal" name="tanggal" required>
                             </div>
                             <div class="form-group mb-3">
-                                    <select name="dibayar" class="form-control">
+                                    <select name="dibayar" class="form-control" required>
                                       <option>- Pilih Status Bayar -</option>
                                       <option value="sudah_dibayar">Sudah Dibayar</option>
                                       <option value="belum_dibayar">Belum Dibayar</option>
                                     </select>
                             </div>
                             <div class="form-group mb-3">
-                                    <input class="form-control" placeholder="Total" name="total" id="rupiah">
+                                    <input class="form-control" placeholder="Total" name="total" id="rupiah" required>
                             </div>
                             <div class="text-center">
                                 <button  class="btn btn-primary my-4">Tambah</button>

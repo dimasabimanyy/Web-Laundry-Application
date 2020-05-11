@@ -15,6 +15,9 @@ Route::group(['middleware' => ['auth','CheckRole:admin']],function(){
 	Route::get('/outlet/edit/{acuan}','OutletController@edit');//for show edit form
 	Route::put('/outlet/edit','OutletController@update');//for process behind edit form
 
+	Route::get('/member','MemberController@index');
+	Route::delete('/member/delete','MemberController@delete');
+
 	//------Produk / Paket ---------
 	Route::get('/produk','ProdukController@index');
 	Route::get('/produk/create','ProdukController@create');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\{Outlet, Pelanggan, User, Transaksi};
+use App\Notifications\TransaksiHappened;
 
 class TransaksiController extends Controller
 {
@@ -18,8 +19,7 @@ class TransaksiController extends Controller
     public function create(){
     	$data_outlet = Outlet::get();
         $data_pelanggan = Pelanggan::get();
-        
-        // auth()->user()->notify(new TransaksiHappened());
+
     	return view('transaksi_index')->with('data_outlet',$data_outlet)->with('data_pelanggan',$data_pelanggan);
     }
     public function insert(Request $request){
@@ -33,6 +33,7 @@ class TransaksiController extends Controller
             'total' => $request['total']
         ]);
 
+        auth()->user()->notify(new TransaksiHappened($request));
     	return redirect('transaksi')->withSuccess('Berhasil Ditambah!');
     }
     public function delete(Request $request){

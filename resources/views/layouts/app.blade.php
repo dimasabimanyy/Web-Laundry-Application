@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Laundry Web App - Dimas Abimanyu</title>
   <!-- Favicon -->
-  <link rel="icon" href="{{asset('img/brand/favicon.png')}}" type="image/png">
+  <link rel="icon" href="{{asset('img/brand/favicon-32x32.png')}}" type="image/png">
   <!-- Fonts -->
   <link rel="stylesheet" href="{{asset('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700')}}">
   <!-- Icons -->
@@ -24,7 +24,7 @@
   <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand" href="dashboard.html">
-        <img src="{{asset('img/brand/white.png')}}">
+        <img src="{{asset('img/brand/dolaundry-white.png')}}">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -34,7 +34,7 @@
           <div class="row">
             <div class="col-6 collapse-brand">
               <a href="dashboard.html">
-                <img src="../assets/img/brand/blue.png">
+                <img src="../assets/img/brand/dolaundry.png">
               </a>
             </div>
             <div class="col-6 collapse-close">

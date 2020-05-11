@@ -6,20 +6,23 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use App\User;
 use Carbon\Carbon;
 
 class TransaksiHappened extends Notification
 {
     use Queueable;
 
+    protected $request;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($request)
     {
-        //
+        $this->request = $request;
     }
 
     /**
@@ -42,7 +45,8 @@ class TransaksiHappened extends Notification
     public function toDatabase($notifiable)
     {
         return [
-            'TransaksiTime' => Carbon::now();
+            'transaksi' => $this->request,
+            'user' => $notifiable
         ];
     }
 
@@ -55,7 +59,7 @@ class TransaksiHappened extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+            'data' => 'This is my first notification'
         ];
     }
 }
