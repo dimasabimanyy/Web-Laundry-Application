@@ -27,6 +27,5 @@ class CreateJenisPengeluaransTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jenis_pengeluarans');
     }
 }
