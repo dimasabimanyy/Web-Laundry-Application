@@ -70,6 +70,17 @@
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary mt-4">Masuk</button>
                 </div>
+                <div class="text-center mt-4">
+                  <b>Demo Account</b>
+                  <p class="mt-3">
+                    <b>Admin :</b> admin@admin.com<br>
+                    <b>Password :</b> secret
+                  </p>
+                  <p class="mt-3">
+                    <b>Cashier :</b> cashier@cashier.com<br>
+                    <b>Password :</b> secret
+                  </p>
+                </div>
               </form>
               <!-- END FORM LOGIN -->
             </div>

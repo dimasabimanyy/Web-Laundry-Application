@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Aplikasi kasir laundry">
   <meta name="author" content="Dimas Abimanyu">
-  <title>Laundry Web Apps</title>
+  <title>DoLaundry Web Apps</title>
   <!-- Favicon -->
   <link rel="icon" href="{{asset('/img/brand/favicon-32x32.png')}}" type="image/png">
   <!-- Fonts -->
@@ -101,14 +101,14 @@
               </a>
             </li>
             @endif
-            @if(auth()->user()->role == 'admin' or 'cashier' or 'owner')
+            <!-- @if(auth()->user()->role == 'admin' or 'cashier' or 'owner')
             <li class="nav-item">
               <a class="nav-link" href="{{url('/laporan')}}">
                 <i class="fa fa-folder text-orange"></i>
                 <span class="nav-link-text">Laporan</span>
               </a>
             </li>
-            @endif
+            @endif -->
             @if(auth()->user()->role == 'admin')
             <li class="nav-item">
               <a class="nav-link" href="{{url('/member')}}">
@@ -147,40 +147,6 @@
               <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
                 <i class="ni ni-zoom-split-in"></i>
               </a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="ni ni-bell-55"></i>
-              </a>
-              <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
-                <!-- Dropdown header -->
-                <div class="px-3 py-3">
-                  <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">{{count(auth()->user()->unreadNotifications)}}</strong> notifications.</h6>
-                </div>
-                <!-- List group -->
-                <div class="list-group list-group-flush">
-                @foreach(auth()->user()->unreadNotifications as $notification)
-                  <a href="#!" class="list-group-item list-group-item-action">
-                    <div class="row align-items-center">
-                      <div class="col ml--2">
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div>
-                            <h4 class="mb-0 text-sm">@include('layouts.partials.notification.'.Str::snake(class_basename($notification->type)))</h4>
-                          </div>
-                          <div class="text-right text-muted">
-                            <small>2 hrs ago</small>
-                            
-                          </div>
-                        </div>
-                        <p class="text-sm mb-0">@include('layouts.partials.notification.'.Str::snake(class_basename($notification->type)))</p>
-                      </div>
-                    </div>
-                  </a>
-                  @endforeach
-                </div>
-                <!-- View all -->
-                <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
-              </div>
             </li>
           </ul>
           <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
@@ -224,7 +190,7 @@
         <div class="header-body">
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Web Laundry Apps</h6>
+              <h6 class="h2 text-white d-inline-block mb-0"> DoLaundry Apps</h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
@@ -240,35 +206,15 @@
         </div>
       </div>
     </div>
-    <!-- Page content -->
-    <!-- <div class="container-fluid mt--6">
-      <div class="row">
-        <div class="col-xl-8">
 
-        </div>
-        <div class="col-xl-4">
-          
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xl-8">
-      
-        </div>
-        <div class="col-xl-4">
-          
-        </div>
-      </div> -->
-
-      <!-- Page Content 2 -->
       @yield('content')
-      <!-- End Page Content 2 -->
 
       <!-- Footer -->
       <footer class="footer pt-0">
         <div class="row align-items-center justify-content-lg-between">
           <div class="col-lg">
             <div class="copyright text-center  text-lg-center  text-muted">
-              &copy; 2020 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Laundry Web Apps</a>
+              &copy; 2020 <a href="https://\github.com/dimasabimanyy" class="font-weight-bold ml-1" target="_blank">DoLaundry Apps</a>
             </div>
           </div>
         </div>

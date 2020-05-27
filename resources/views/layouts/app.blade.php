@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Laundry Web App - Dimas Abimanyu</title>
+  <title>DoLaundry Web App - Dimas Abimanyu</title>
   <!-- Favicon -->
   <link rel="icon" href="{{asset('img/brand/favicon-32x32.png')}}" type="image/png">
   <!-- Fonts -->
@@ -23,7 +23,7 @@
     <!-- Navbar -->
   <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand" href="dashboard.html">
+      <a class="navbar-brand" href="javascript:void(0)">
         <img src="{{asset('img/brand/dolaundry-white.png')}}">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
